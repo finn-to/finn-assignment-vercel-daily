@@ -3,9 +3,9 @@ import "./globals.css";
 import type { Metadata, Viewport } from "next";
 import { Be_Vietnam_Pro } from "next/font/google";
 
-import ErrorBoundary from "@/components/ErrorBoundary";
-import Footer from "@/components/Footer";
-import Header from "@/components/Header";
+import ErrorBoundary from "@/components/composite/ErrorBoundary";
+import Footer from "@/components/composite/Footer";
+import Header from "@/components/composite/Header";
 import { getPublicationConfig } from "@/lib/api/publicationConfig";
 import { SITE_URL } from "@/lib/constants";
 import { SpeedInsights } from "@vercel/speed-insights/next";

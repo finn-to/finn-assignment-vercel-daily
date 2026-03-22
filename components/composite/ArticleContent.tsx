@@ -1,7 +1,7 @@
 import { cookies } from "next/headers";
 
-import ArticleBody from "@/components/ArticleBody";
-import PaywallGate from "@/components/PaywallGate";
+import ArticleBody from "@/components/composite/ArticleBody";
+import PaywallGate from "@/components/composite/PaywallGate";
 import { getSubscription } from "@/lib/api/subscription";
 import { SUBSCRIPTION_TOKEN_COOKIE } from "@/lib/constants";
 import type { ContentBlock } from "@/lib/types";

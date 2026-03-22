@@ -5,12 +5,12 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 
-import ArticleContent from "@/components/ArticleContent";
-import ErrorBoundary from "@/components/ErrorBoundary";
+import ArticleContent from "@/components/composite/ArticleContent";
+import ErrorBoundary from "@/components/composite/ErrorBoundary";
 import { ArticleContentSkeleton } from "@/components/skeletons/ArticleContentSkeleton";
 import TrendingArticlesSidebar, {
   TrendingArticlesSidebarSkeleton,
-} from "@/components/TrendingArticlesSidebar";
+} from "@/components/composite/TrendingArticlesSidebar";
 import { getArticle, getArticles } from "@/lib/api/articles";
 import { getCategories } from "@/lib/api/categories";
 import logger from "@/lib/logger";

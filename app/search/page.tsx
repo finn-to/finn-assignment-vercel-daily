@@ -2,11 +2,11 @@ import { Suspense } from "react";
 
 import type { Metadata } from "next";
 
-import ErrorBoundary from "@/components/ErrorBoundary";
+import ErrorBoundary from "@/components/composite/ErrorBoundary";
 import SearchControls, {
   SearchControlsSkeleton,
-} from "@/components/SearchControls";
-import SearchResults from "@/components/SearchResults";
+} from "@/components/composite/SearchControls";
+import SearchResults from "@/components/composite/SearchResults";
 import { SearchResultsSkeleton } from "@/components/skeletons/SearchResultsSkeleton";
 
 export const metadata: Metadata = {

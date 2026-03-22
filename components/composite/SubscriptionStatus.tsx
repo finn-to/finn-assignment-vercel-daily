@@ -1,6 +1,6 @@
 import { cookies } from "next/headers";
 
-import SubscriptionIndicator from "@/components/SubscriptionIndicator";
+import SubscriptionIndicator from "@/components/composite/SubscriptionIndicator";
 import { SUBSCRIPTION_TOKEN_COOKIE } from "@/lib/constants";
 
 export default async function SubscriptionStatus() {

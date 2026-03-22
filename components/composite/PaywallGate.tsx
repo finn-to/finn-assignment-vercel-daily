@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import ArticleBody from "@/components/ArticleBody";
+import ArticleBody from "@/components/composite/ArticleBody";
 import { buttonVariants } from "@/components/ui/button-variants";
 import type { ContentBlock } from "@/lib/types";
 import { cn } from "@/lib/utils";

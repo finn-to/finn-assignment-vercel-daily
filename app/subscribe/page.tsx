@@ -3,7 +3,7 @@ import { Suspense } from "react";
 import { TriangleIcon } from "lucide-react";
 
 import { subscribeAction } from "@/app/actions/subscription";
-import SubscribeButton from "@/components/SubscribeButton";
+import SubscribeButton from "@/components/composite/SubscribeButton";
 
 export const metadata = {
   title: "Subscribe",

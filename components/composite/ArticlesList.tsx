@@ -1,7 +1,7 @@
 import { ArrowLeftIcon, ArrowRightIcon } from "lucide-react";
 import Link from "next/link";
 
-import ArticleCard from "@/components/ArticleCard";
+import ArticleCard from "@/components/composite/ArticleCard";
 import { buttonVariants } from "@/components/ui/button-variants";
 import { getArticles } from "@/lib/api/articles";
 import { getCategories } from "@/lib/api/categories";

@@ -1,4 +1,4 @@
-import ArticleCard from "@/components/ArticleCard";
+import ArticleCard from "@/components/composite/ArticleCard";
 import { getArticles } from "@/lib/api/articles";
 import { getCategories } from "@/lib/api/categories";
 import type { Category } from "@/lib/types";

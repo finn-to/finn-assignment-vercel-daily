@@ -3,8 +3,8 @@ import { Suspense } from "react";
 import { TriangleIcon } from "lucide-react";
 import Link from "next/link";
 
-import MobileNav from "@/components/MobileNav";
-import SubscriptionStatus from "@/components/SubscriptionStatus";
+import MobileNav from "@/components/composite/MobileNav";
+import SubscriptionStatus from "@/components/composite/SubscriptionStatus";
 import { buttonVariants } from "@/components/ui/button-variants";
 import { NAV_LINKS } from "@/lib/constants";
 import { cn } from "@/lib/utils";

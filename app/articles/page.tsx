@@ -2,8 +2,8 @@ import { Suspense } from "react";
 
 import type { Metadata } from "next";
 
-import ArticlesList from "@/components/ArticlesList";
-import ErrorBoundary from "@/components/ErrorBoundary";
+import ArticlesList from "@/components/composite/ArticlesList";
+import ErrorBoundary from "@/components/composite/ErrorBoundary";
 import { ArticlesListSkeleton } from "@/components/skeletons/ArticlesListSkeleton";
 
 export const metadata: Metadata = {

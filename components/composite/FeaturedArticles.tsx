@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import ArticleCard from "@/components/ArticleCard";
+import ArticleCard from "@/components/composite/ArticleCard";
 import { getFeaturedArticles } from "@/lib/api/articles";
 import { getCategories } from "@/lib/api/categories";
 

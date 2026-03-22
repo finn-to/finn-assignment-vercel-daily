@@ -2,12 +2,12 @@ import { Suspense } from "react";
 
 import BreakingNewsBanner, {
   BreakingNewsBannerSkeleton,
-} from "@/components/BreakingNewsBanner";
-import ErrorBoundary from "@/components/ErrorBoundary";
+} from "@/components/composite/BreakingNewsBanner";
+import ErrorBoundary from "@/components/composite/ErrorBoundary";
 import FeaturedArticles, {
   FeaturedArticlesSkeleton,
-} from "@/components/FeaturedArticles";
-import HeroSection from "@/components/HeroSection";
+} from "@/components/composite/FeaturedArticles";
+import HeroSection from "@/components/composite/HeroSection";
 
 export default function Home() {
   return (

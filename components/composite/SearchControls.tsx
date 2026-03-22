@@ -1,4 +1,4 @@
-import SearchControlsField from "@/components/SearchControlsField";
+import SearchControlsField from "@/components/composite/SearchControlsField";
 import { getCategories } from "@/lib/api/categories";
 
 export { SearchControlsSkeleton } from "@/components/skeletons/SearchControlsSkeleton";
