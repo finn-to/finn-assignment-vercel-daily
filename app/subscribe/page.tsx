@@ -1,3 +1,39 @@
+import { TriangleIcon } from "lucide-react";
+
+import { subscribeAction } from "@/app/actions/subscription";
+
+export const metadata = {
+  title: "Subscribe",
+  description: "Get unlimited access to all articles from Vercel Daily News.",
+};
+
 export default function SubscribePage() {
-  return <div>Subscribe page</div>;
+  return (
+    <div className="mx-auto max-w-lg px-4 py-20 text-center sm:px-6">
+      <div className="mb-6 flex justify-center">
+        <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-neutral-950 text-white">
+          <TriangleIcon className="h-6 w-6 fill-current" />
+        </div>
+      </div>
+
+      <h1 className="text-3xl font-bold text-neutral-950">
+        Subscribe to Vercel Daily News
+      </h1>
+      <p className="mt-3 text-neutral-600">
+        Get unlimited access to all articles and exclusive content from Vercel
+        Daily News.
+      </p>
+
+      <div className="mt-4 px-4 py-4">
+        <form action={subscribeAction}>
+          <button
+            type="submit"
+            className="w-full rounded-lg bg-neutral-950 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-neutral-800 cursor-pointer"
+          >
+            Subscribe Now
+          </button>
+        </form>
+      </div>
+    </div>
+  );
 }

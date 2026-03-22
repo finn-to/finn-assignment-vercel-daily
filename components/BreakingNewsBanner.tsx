@@ -4,7 +4,7 @@ import Link from "next/link";
 import { getArticle } from "@/lib/api/articles";
 import { getBreakingNews } from "@/lib/api/breakingNews";
 import { getCategories } from "@/lib/api/categories";
-import { articleUrl } from "@/lib/utils";
+import { articleUrl } from "@/lib/article-helpers";
 
 export { BreakingNewsBannerSkeleton } from "@/components/skeletons/BreakingNewsBannerSkeleton";
 

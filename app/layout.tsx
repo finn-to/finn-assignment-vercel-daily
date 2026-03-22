@@ -1,6 +1,6 @@
 import "./globals.css";
 
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Be_Vietnam_Pro } from "next/font/google";
 
 import ErrorBoundary from "@/components/ErrorBoundary";
@@ -16,11 +16,16 @@ const beVietnamPro = Be_Vietnam_Pro({
   weight: ["300", "400", "500", "600", "700"],
 });
 
+export const viewport: Viewport = {
+  themeColor: "#1a1a2e",
+};
+
 export async function generateMetadata(): Promise<Metadata> {
   const config = await getPublicationConfig();
   const { defaultTitle, titleTemplate, defaultDescription } = config.seo;
 
   return {
+    generator: "vercel-daily-news",
     metadataBase: new URL(SITE_URL),
     title: {
       default: defaultTitle,

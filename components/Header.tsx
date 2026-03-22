@@ -1,12 +1,26 @@
-import { BellIcon, TriangleIcon } from "lucide-react";
+import { Suspense } from "react";
+
+import { TriangleIcon } from "lucide-react";
 import Link from "next/link";
 
 import MobileNav from "@/components/MobileNav";
+import SubscriptionStatus from "@/components/SubscriptionStatus";
 
 const navLinks = [
   { href: "/", label: "Home" },
   { href: "/search", label: "Search" },
 ];
+
+function SubscribeFallback() {
+  return (
+    <Link
+      href="/subscribe"
+      className="rounded-lg bg-neutral-950 px-4 py-1.5 text-sm font-semibold text-white transition-colors hover:bg-neutral-800"
+    >
+      Subscribe
+    </Link>
+  );
+}
 
 export default function Header() {
   return (
@@ -37,13 +51,9 @@ export default function Header() {
 
           <div className="flex-1" />
 
-          <button
-            type="button"
-            aria-label="Notifications"
-            className="rounded-md p-1.5 text-neutral-500 transition-colors hover:bg-neutral-100 hover:text-neutral-900"
-          >
-            <BellIcon className="h-5 w-5" />
-          </button>
+          <Suspense fallback={<SubscribeFallback />}>
+            <SubscriptionStatus />
+          </Suspense>
         </div>
       </div>
     </header>
