@@ -14,7 +14,7 @@ export default function Footer() {
             <span>Vercel Daily</span>
           </Link>
           <p className="text-sm text-neutral-500">
-            © {new Date().getFullYear()} Vercel Daily. All rights reserved.
+            © 2026 Vercel Daily. All rights reserved.
           </p>
         </div>
       </div>

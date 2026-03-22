@@ -5,6 +5,8 @@ import { Be_Vietnam_Pro } from "next/font/google";
 
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
+import { getPublicationConfig } from "@/lib/api/publicationConfig";
+import { SITE_URL } from "@/lib/constants";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const beVietnamPro = Be_Vietnam_Pro({
@@ -13,28 +15,30 @@ const beVietnamPro = Be_Vietnam_Pro({
   weight: ["300", "400", "500", "600", "700"],
 });
 
-const siteDescription =
-  "The latest news, tutorials, and insights for modern web developers.";
+export async function generateMetadata(): Promise<Metadata> {
+  const config = await getPublicationConfig();
+  const { defaultTitle, titleTemplate, defaultDescription } = config.seo;
 
-export const metadata: Metadata = {
-  metadataBase: new URL("https://vercel-daily-news.vercel.app"),
-  title: {
-    default: "Vercel Daily",
-    template: "%s | Vercel Daily",
-  },
-  description: siteDescription,
-  openGraph: {
-    title: "Vercel Daily",
-    description: siteDescription,
-    type: "website",
-    siteName: "Vercel Daily",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Vercel Daily",
-    description: siteDescription,
-  },
-};
+  return {
+    metadataBase: new URL(SITE_URL),
+    title: {
+      default: defaultTitle,
+      template: titleTemplate,
+    },
+    description: defaultDescription,
+    openGraph: {
+      title: defaultTitle,
+      description: defaultDescription,
+      type: "website",
+      siteName: config.publicationName,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: defaultTitle,
+      description: defaultDescription,
+    },
+  };
+}
 
 export default function RootLayout({
   children,
