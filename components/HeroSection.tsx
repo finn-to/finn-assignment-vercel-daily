@@ -1,9 +1,7 @@
-"use client";
-
 import { ArrowRightIcon } from "lucide-react";
 import Link from "next/link";
 
-import { buttonVariants } from "@/components/ui/button";
+import { buttonVariants } from "@/components/ui/button-variants";
 import { cn } from "@/lib/utils";
 
 export default function HeroSection() {
@@ -25,7 +23,7 @@ export default function HeroSection() {
 
         <div className="mt-8 flex flex-wrap items-center gap-3">
           <Link
-            href="/search"
+            href="/articles"
             className={cn(
               buttonVariants({ variant: "default" }),
               "h-11 gap-2 rounded-xl px-5 text-sm font-semibold",

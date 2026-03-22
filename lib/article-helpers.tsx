@@ -6,12 +6,25 @@ export function extractArticleId(slug: string): string {
   return slug.split("-").pop() ?? slug;
 }
 
-export function formatDate(dateStr: string) {
-  return new Date(dateStr).toLocaleDateString("en-US", {
-    month: "short",
-    day: "numeric",
-    year: "numeric",
-  });
+const MONTHS = [
+  "Jan",
+  "Feb",
+  "Mar",
+  "Apr",
+  "May",
+  "Jun",
+  "Jul",
+  "Aug",
+  "Sep",
+  "Oct",
+  "Nov",
+  "Dec",
+] as const;
+
+export function formatDate(dateStr: string): string {
+  const [year, monthStr, dayStr] = dateStr.slice(0, 10).split("-");
+  const month = MONTHS[parseInt(monthStr, 10) - 1] ?? monthStr;
+  return `${month} ${parseInt(dayStr, 10)}, ${year}`;
 }
 
 export function renderMarkdownInline(text: string) {

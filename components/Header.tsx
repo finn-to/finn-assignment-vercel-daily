@@ -5,13 +5,15 @@ import Link from "next/link";
 
 import MobileNav from "@/components/MobileNav";
 import SubscriptionStatus from "@/components/SubscriptionStatus";
+import { buttonVariants } from "@/components/ui/button-variants";
 import { NAV_LINKS } from "@/lib/constants";
+import { cn } from "@/lib/utils";
 
 function SubscribeFallback() {
   return (
     <Link
       href="/subscribe"
-      className="rounded-lg bg-neutral-950 px-4 py-1.5 text-sm font-semibold text-white transition-colors hover:bg-neutral-800"
+      className={cn(buttonVariants({ variant: "default" }), "px-4 py-1.5")}
     >
       Subscribe
     </Link>

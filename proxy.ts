@@ -1,10 +1,5 @@
-import { NextRequest, NextResponse } from "next/server";
+import { NextResponse } from "next/server";
 
-export function proxy(request: NextRequest) {
-  console.log("🚀 ~ middleware ~ request:", request);
+export function proxy() {
   return NextResponse.next();
 }
-
-export const config = {
-  matcher: ["/articles/:path*"],
-};

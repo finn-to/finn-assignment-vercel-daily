@@ -7,7 +7,8 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 
 import { unsubscribeAction } from "@/app/actions/subscription";
-import { Button } from "@/components/ui/button";
+import { Button, buttonVariants } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
 interface Props {
   isSubscribed: boolean;
@@ -21,7 +22,7 @@ export default function SubscriptionIndicator({ isSubscribed }: Props) {
     return (
       <Link
         href="/subscribe"
-        className="rounded-lg bg-neutral-950 px-4 py-1.5 text-sm font-semibold text-white transition-colors hover:bg-neutral-800"
+        className={cn(buttonVariants({ variant: "default" }), "px-4 py-1.5")}
       >
         Subscribe
       </Link>

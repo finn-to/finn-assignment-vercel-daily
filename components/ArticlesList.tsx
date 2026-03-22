@@ -2,8 +2,10 @@ import { ArrowLeftIcon, ArrowRightIcon } from "lucide-react";
 import Link from "next/link";
 
 import ArticleCard from "@/components/ArticleCard";
+import { buttonVariants } from "@/components/ui/button-variants";
 import { getArticles } from "@/lib/api/articles";
 import { getCategories } from "@/lib/api/categories";
+import { cn } from "@/lib/utils";
 
 const PAGE_SIZE = 9;
 
@@ -24,13 +26,15 @@ function PaginationLink({
   disabled: boolean;
   children: React.ReactNode;
 }) {
-  const base =
-    "inline-flex items-center gap-1 rounded-lg border px-4 py-2 text-sm font-medium";
+  const base = cn(buttonVariants({ variant: "outline" }), "gap-1 px-4 py-2");
 
   if (disabled) {
     return (
       <span
-        className={`${base} border-neutral-100 text-neutral-300 cursor-not-allowed`}
+        className={cn(
+          base,
+          "cursor-not-allowed opacity-50 pointer-events-none",
+        )}
       >
         {children}
       </span>
@@ -38,10 +42,7 @@ function PaginationLink({
   }
 
   return (
-    <Link
-      href={href}
-      className={`${base} border-neutral-200 text-neutral-700 transition-colors hover:bg-neutral-50`}
-    >
+    <Link href={href} className={base}>
       {children}
     </Link>
   );
