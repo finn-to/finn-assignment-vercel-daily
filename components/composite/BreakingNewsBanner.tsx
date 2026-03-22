@@ -23,7 +23,10 @@ export default async function BreakingNewsBanner() {
         <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
           <div className="flex items-center gap-2 shrink-0">
             {item.urgent && (
-              <span className="rounded bg-red-600 px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-white">
+              <span
+                className="rounded bg-red-600 px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-white"
+                aria-label="Breaking news"
+              >
                 Breaking
               </span>
             )}
@@ -36,7 +39,7 @@ export default async function BreakingNewsBanner() {
           </p>
           <Link
             href={href}
-            className="flex shrink-0 items-center gap-1 text-xs font-semibold text-white underline-offset-2 hover:underline"
+            className="flex shrink-0 items-center gap-1 rounded-sm text-xs font-semibold text-white underline-offset-2 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-950"
           >
             Read more
             <ArrowRightIcon className="h-3 w-3" />

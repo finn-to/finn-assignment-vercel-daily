@@ -75,7 +75,10 @@ export default async function ArticlesList({ searchParams }: Props) {
       </div>
 
       {pagination.totalPages > 1 && (
-        <div className="mt-12 flex items-center justify-between border-t border-neutral-200 pt-6">
+        <nav
+          aria-label="Pagination"
+          className="mt-12 flex items-center justify-between border-t border-neutral-200 pt-6"
+        >
           <p className="text-sm text-neutral-500">
             Page {pagination.page} of {pagination.totalPages}
           </p>
@@ -97,7 +100,7 @@ export default async function ArticlesList({ searchParams }: Props) {
               <ArrowRightIcon className="h-4 w-4" />
             </PaginationLink>
           </div>
-        </div>
+        </nav>
       )}
     </div>
   );

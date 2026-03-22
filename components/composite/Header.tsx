@@ -35,7 +35,7 @@ export default function Header() {
 
           <Link
             href="/"
-            className="flex items-center gap-2 text-sm font-semibold"
+            className="flex items-center gap-2 rounded-md text-sm font-semibold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neutral-900 focus-visible:ring-offset-2"
           >
             <TriangleIcon className="h-4 w-4 fill-current" />
             <span>Vercel Daily</span>
@@ -46,7 +46,7 @@ export default function Header() {
               <Link
                 key={href}
                 href={href}
-                className="rounded-md px-3 py-1.5 text-sm text-neutral-600 transition-colors hover:text-neutral-900"
+                className="rounded-md px-3 py-1.5 text-sm text-neutral-600 transition-colors hover:text-neutral-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neutral-900 focus-visible:ring-offset-2"
               >
                 {label}
               </Link>

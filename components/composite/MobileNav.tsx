@@ -22,7 +22,7 @@ interface Props {
 export default function MobileNav({ subscriptionSlot }: Props) {
   return (
     <Sheet>
-      <SheetTrigger className="md:hidden inline-flex items-center justify-center rounded-md p-1.5 text-neutral-500 hover:bg-neutral-100 hover:text-neutral-900 transition-colors">
+      <SheetTrigger className="md:hidden inline-flex items-center justify-center rounded-md p-1.5 text-neutral-500 hover:bg-neutral-100 hover:text-neutral-900 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neutral-900 focus-visible:ring-offset-2">
         <MenuIcon className="h-5 w-5" />
         <span className="sr-only">Open navigation</span>
       </SheetTrigger>
@@ -38,7 +38,7 @@ export default function MobileNav({ subscriptionSlot }: Props) {
               render={
                 <Link
                   href={href}
-                  className="rounded-md px-3 py-2 text-sm font-medium text-foreground hover:bg-secondary transition-colors"
+                  className="rounded-md px-3 py-2 text-sm font-medium text-foreground hover:bg-secondary transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neutral-900 focus-visible:ring-offset-2"
                 />
               }
             >

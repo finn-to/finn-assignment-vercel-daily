@@ -13,6 +13,7 @@ export default function SubscribeButton() {
     <Button
       type="submit"
       disabled={pending}
+      aria-busy={pending}
       className="w-full cursor-pointer py-6"
     >
       {pending && <LoaderCircleIcon className="h-4 w-4 animate-spin" />}

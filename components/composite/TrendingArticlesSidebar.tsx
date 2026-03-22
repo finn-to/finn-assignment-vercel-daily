@@ -32,7 +32,7 @@ export default async function TrendingArticlesSidebar({
           <article key={article.id} className="flex gap-3">
             <Link
               href={articleUrl(article.slug, article.id)}
-              className="group flex-shrink-0"
+              className="group flex-shrink-0 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neutral-900 focus-visible:ring-offset-2"
             >
               <div className="relative h-20 w-20 overflow-hidden rounded-lg">
                 <Image
@@ -48,7 +48,10 @@ export default async function TrendingArticlesSidebar({
               <p className="truncate text-xs font-semibold uppercase tracking-widest text-neutral-500">
                 {categoryNameMap[article.category] ?? article.category}
               </p>
-              <Link href={articleUrl(article.slug, article.id)}>
+              <Link
+                href={articleUrl(article.slug, article.id)}
+                className="rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neutral-900 focus-visible:ring-offset-1"
+              >
                 <h3 className="line-clamp-2 text-sm font-semibold leading-snug text-neutral-950 underline-offset-2 hover:underline">
                   {article.title}
                 </h3>

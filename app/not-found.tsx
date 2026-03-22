@@ -20,7 +20,7 @@ export default function NotFound() {
       </p>
       <Link
         href="/"
-        className="mt-10 text-sm font-semibold text-neutral-900 underline underline-offset-4 hover:text-neutral-600"
+        className="mt-10 rounded-sm text-sm font-semibold text-neutral-900 underline underline-offset-4 hover:text-neutral-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neutral-900 focus-visible:ring-offset-2"
       >
         Back to home
       </Link>

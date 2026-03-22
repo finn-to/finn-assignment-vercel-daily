@@ -27,7 +27,7 @@ export default async function FeaturedArticles() {
         </div>
         <Link
           href="/articles"
-          className="text-sm text-neutral-500 hover:text-neutral-950 transition-colors"
+          className="rounded-md text-sm text-neutral-500 hover:text-neutral-950 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neutral-900 focus-visible:ring-offset-2"
         >
           View all
         </Link>

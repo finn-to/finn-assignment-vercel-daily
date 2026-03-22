@@ -14,7 +14,7 @@ export default function ArticleCard({ article, categoryName }: Props) {
   const href = articleUrl(article.slug, article.id);
   return (
     <article className="flex flex-col gap-4">
-      <Link href={href} className="block group">
+      <Link href={href} className="block group" aria-hidden tabIndex={-1}>
         <div className="overflow-hidden rounded-xl border border-neutral-200 bg-neutral-100 aspect-[3/2] relative">
           <Image
             src={article.image}
@@ -33,7 +33,10 @@ export default function ArticleCard({ article, categoryName }: Props) {
           {formatDate(article.publishedAt)}
         </p>
 
-        <Link href={href}>
+        <Link
+          href={href}
+          className="rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neutral-900 focus-visible:ring-offset-1"
+        >
           <h3 className="text-lg font-semibold leading-snug text-neutral-950 hover:underline underline-offset-2">
             {article.title}
           </h3>

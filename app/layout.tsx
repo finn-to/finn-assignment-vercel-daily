@@ -54,11 +54,19 @@ export default function RootLayout({
   return (
     <html lang="en" className={beVietnamPro.variable}>
       <body className="flex min-h-screen flex-col antialiased">
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:rounded-md focus:bg-white focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-neutral-900 focus:shadow-md focus:ring-2 focus:ring-neutral-900 focus:outline-none"
+        >
+          Skip to main content
+        </a>
         <ErrorBoundary label="Header">
           <Header />
         </ErrorBoundary>
         <ErrorBoundary label="Main">
-          <main className="flex-1">{children}</main>
+          <main id="main-content" className="flex-1">
+            {children}
+          </main>
         </ErrorBoundary>
         <ErrorBoundary label="Footer">
           <Footer />

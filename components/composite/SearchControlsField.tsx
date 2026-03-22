@@ -83,10 +83,14 @@ export default function SearchControlsField({ categories }: Props) {
           onKeyDown={handleKeyDown}
           placeholder="Search articles..."
           disabled={isPending}
+          aria-label="Search articles"
           className="pr-10"
         />
         {isPending && (
-          <div className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none">
+          <div
+            aria-hidden="true"
+            className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none"
+          >
             <div className="h-4 w-4 animate-spin rounded-full border-2 border-neutral-300 border-t-neutral-700" />
           </div>
         )}
@@ -97,7 +101,10 @@ export default function SearchControlsField({ categories }: Props) {
         onValueChange={handleCategoryChange}
         disabled={isPending}
       >
-        <SelectTrigger className="sm:w-48 w-full">
+        <SelectTrigger
+          aria-label="Filter by category"
+          className="sm:w-48 w-full"
+        >
           <SelectValue placeholder="All categories">
             {currentCategory
               ? (categories.find((c) => c.slug === currentCategory)?.name ??

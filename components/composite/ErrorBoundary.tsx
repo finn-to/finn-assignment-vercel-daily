@@ -56,6 +56,7 @@ export default class ErrorBoundary extends Component<Props, State> {
       return (
         <div
           role="alert"
+          aria-live="assertive"
           className="flex flex-col items-center gap-3 py-6 text-center"
         >
           <p className="text-sm font-medium text-neutral-700">

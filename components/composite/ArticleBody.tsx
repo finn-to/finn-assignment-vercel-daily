@@ -102,7 +102,7 @@ export default function ArticleBody({ blocks }: { blocks: ContentBlock[] }) {
                 <div className="relative aspect-[16/9] overflow-hidden rounded-xl">
                   <Image
                     src={block.src}
-                    alt={block.alt ?? ""}
+                    alt={block.alt ?? block.caption ?? ""}
                     fill
                     className="object-cover"
                     sizes="(max-width: 768px) 100vw, 800px"
