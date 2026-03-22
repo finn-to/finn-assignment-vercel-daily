@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 
-export function middleware(request: NextRequest) {
+export function proxy(request: NextRequest) {
   console.log("🚀 ~ middleware ~ request:", request);
   return NextResponse.next();
 }
