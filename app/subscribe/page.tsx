@@ -1,6 +1,7 @@
 import { TriangleIcon } from "lucide-react";
 
 import { subscribeAction } from "@/app/actions/subscription";
+import SubscribeButton from "@/components/SubscribeButton";
 
 export const metadata = {
   title: "Subscribe",
@@ -26,12 +27,7 @@ export default function SubscribePage() {
 
       <div className="mt-4 px-4 py-4">
         <form action={subscribeAction}>
-          <button
-            type="submit"
-            className="w-full rounded-lg bg-neutral-950 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-neutral-800 cursor-pointer"
-          >
-            Subscribe Now
-          </button>
+          <SubscribeButton />
         </form>
       </div>
     </div>

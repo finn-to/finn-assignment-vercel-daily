@@ -2,6 +2,7 @@
 
 import { Component, type ErrorInfo, type ReactNode } from "react";
 
+import { Button } from "@/components/ui/button";
 import logger from "@/lib/logger";
 
 interface Props {
@@ -86,12 +87,9 @@ export default class ErrorBoundary extends Component<Props, State> {
           )}
 
           <div className="flex items-center gap-2">
-            <button
-              onClick={this.handleReset}
-              className="rounded-md border border-neutral-200 px-3 py-1 text-xs text-neutral-600 hover:bg-neutral-50 active:bg-neutral-100"
-            >
+            <Button onClick={this.handleReset} className="cursor-pointer">
               Try again
-            </button>
+            </Button>
             {!isDev && (
               <p className="text-xs text-neutral-400">or refresh the page</p>
             )}

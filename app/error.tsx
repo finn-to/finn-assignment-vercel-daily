@@ -2,6 +2,9 @@
 
 import { useEffect } from "react";
 
+import { Button } from "@/components/ui/button";
+import logger from "@/lib/logger";
+
 interface ErrorProps {
   error: Error & { digest?: string };
   reset: () => void;
@@ -9,7 +12,15 @@ interface ErrorProps {
 
 export default function Error({ error, reset }: ErrorProps) {
   useEffect(() => {
-    console.error(error);
+    logger.error(
+      {
+        errorName: error.name,
+        errorMessage: error.message,
+        digest: error.digest,
+        stack: error.stack,
+      },
+      "Unhandled page error caught by error boundary",
+    );
   }, [error]);
 
   return (
@@ -23,12 +34,9 @@ export default function Error({ error, reset }: ErrorProps) {
       <p className="mt-4 text-base text-neutral-500">
         An unexpected error occurred. Please try again.
       </p>
-      <button
-        onClick={reset}
-        className="mt-10 text-sm font-semibold text-neutral-900 underline underline-offset-4 hover:text-neutral-600"
-      >
+      <Button onClick={reset} className="mt-10 cursor-pointer">
         Try again
-      </button>
+      </Button>
     </div>
   );
 }

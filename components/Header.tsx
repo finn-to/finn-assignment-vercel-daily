@@ -5,11 +5,7 @@ import Link from "next/link";
 
 import MobileNav from "@/components/MobileNav";
 import SubscriptionStatus from "@/components/SubscriptionStatus";
-
-const navLinks = [
-  { href: "/", label: "Home" },
-  { href: "/search", label: "Search" },
-];
+import { NAV_LINKS } from "@/lib/constants";
 
 function SubscribeFallback() {
   return (
@@ -27,7 +23,13 @@ export default function Header() {
     <header className="sticky top-0 z-50 border-b border-neutral-200 bg-white">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-14 items-center gap-4">
-          <MobileNav />
+          <MobileNav
+            subscriptionSlot={
+              <Suspense fallback={<SubscribeFallback />}>
+                <SubscriptionStatus />
+              </Suspense>
+            }
+          />
 
           <Link
             href="/"
@@ -38,7 +40,7 @@ export default function Header() {
           </Link>
 
           <nav className="ml-2 hidden items-center gap-1 md:flex">
-            {navLinks.map(({ href, label }) => (
+            {NAV_LINKS.map(({ href, label }) => (
               <Link
                 key={href}
                 href={href}
@@ -51,9 +53,11 @@ export default function Header() {
 
           <div className="flex-1" />
 
-          <Suspense fallback={<SubscribeFallback />}>
-            <SubscriptionStatus />
-          </Suspense>
+          <div className="hidden md:flex">
+            <Suspense fallback={<SubscribeFallback />}>
+              <SubscriptionStatus />
+            </Suspense>
+          </div>
         </div>
       </div>
     </header>

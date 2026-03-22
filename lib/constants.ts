@@ -10,6 +10,11 @@ export const BYPASS_TOKEN =
 
 export const SUBSCRIPTION_TOKEN_COOKIE = "subscription_token";
 
+export const NAV_LINKS = [
+  { href: "/", label: "Home" },
+  { href: "/search", label: "Search" },
+];
+
 export function apiHeaders(): HeadersInit {
   return { "x-vercel-protection-bypass": BYPASS_TOKEN };
 }
