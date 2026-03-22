@@ -10,7 +10,7 @@ import {
 } from "@/lib/api/subscription";
 import { SUBSCRIPTION_TOKEN_COOKIE } from "@/lib/constants";
 
-export async function subscribeAction() {
+export async function subscribeAction(formData: FormData) {
   const { token } = await createSubscription();
   await activateSubscription(token);
 
@@ -23,7 +23,8 @@ export async function subscribeAction() {
     maxAge: 60 * 60 * 24 * 365,
   });
 
-  redirect("/");
+  const redirectTo = formData.get("redirect");
+  redirect(typeof redirectTo === "string" && redirectTo ? redirectTo : "/");
 }
 
 export async function unsubscribeAction() {

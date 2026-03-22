@@ -9,9 +9,14 @@ import type { ContentBlock } from "@/lib/types";
 interface Props {
   content: ContentBlock[];
   teaser: ContentBlock[];
+  redirectTo: string;
 }
 
-export default async function ArticleContent({ content, teaser }: Props) {
+export default async function ArticleContent({
+  content,
+  teaser,
+  redirectTo,
+}: Props) {
   const cookieStore = await cookies();
   const token = cookieStore.get(SUBSCRIPTION_TOKEN_COOKIE)?.value;
 
@@ -28,7 +33,7 @@ export default async function ArticleContent({ content, teaser }: Props) {
       {isSubscribed ? (
         <ArticleBody blocks={content} />
       ) : (
-        <PaywallGate teaser={teaser} />
+        <PaywallGate teaser={teaser} redirectTo={redirectTo} />
       )}
     </>
   );

@@ -34,7 +34,7 @@ export default function Error({ error, reset }: ErrorProps) {
       <p className="mt-4 text-base text-neutral-500">
         An unexpected error occurred. Please try again.
       </p>
-      <Button onClick={reset} className="mt-10 cursor-pointer">
+      <Button onClick={reset} className="mt-10 cursor-pointer px-4 py-1.5">
         Try again
       </Button>
     </div>

@@ -135,7 +135,11 @@ export default async function ArticlePage({
         <div className="min-w-0 flex-1">
           <ErrorBoundary label="ArticleContent">
             <Suspense fallback={<ArticleContentSkeleton />}>
-              <ArticleContent content={article.content} teaser={teaserBlocks} />
+              <ArticleContent
+                content={article.content}
+                teaser={teaserBlocks}
+                redirectTo={`/articles/${slug}`}
+              />
             </Suspense>
           </ErrorBoundary>
         </div>

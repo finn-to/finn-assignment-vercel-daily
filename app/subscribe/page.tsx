@@ -8,7 +8,13 @@ export const metadata = {
   description: "Get unlimited access to all articles from Vercel Daily News.",
 };
 
-export default function SubscribePage() {
+export default async function SubscribePage({
+  searchParams,
+}: {
+  searchParams: Promise<{ redirect?: string }>;
+}) {
+  const { redirect } = await searchParams;
+
   return (
     <div className="mx-auto max-w-lg px-4 py-20 text-center sm:px-6">
       <div className="mb-6 flex justify-center">
@@ -27,6 +33,7 @@ export default function SubscribePage() {
 
       <div className="mt-4 px-4 py-4">
         <form action={subscribeAction}>
+          {redirect && <input type="hidden" name="redirect" value={redirect} />}
           <SubscribeButton />
         </form>
       </div>
