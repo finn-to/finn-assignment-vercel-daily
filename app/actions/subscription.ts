@@ -17,8 +17,8 @@ export async function subscribeAction(formData: FormData) {
   const cookieStore = await cookies();
   cookieStore.set(SUBSCRIPTION_TOKEN_COOKIE, token, {
     httpOnly: true,
-    secure: process.env.NODE_ENV === "production",
-    sameSite: "lax",
+    secure: true,
+    sameSite: "strict",
     path: "/",
     maxAge: 60 * 60 * 24 * 365,
   });
@@ -34,7 +34,8 @@ export async function unsubscribeAction() {
   if (token) {
     try {
       await deactivateSubscription(token);
-    } catch {}
-    cookieStore.delete(SUBSCRIPTION_TOKEN_COOKIE);
+    } finally {
+      cookieStore.delete(SUBSCRIPTION_TOKEN_COOKIE);
+    }
   }
 }
