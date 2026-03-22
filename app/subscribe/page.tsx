@@ -1,3 +1,5 @@
+import { Suspense } from "react";
+
 import { TriangleIcon } from "lucide-react";
 
 import { subscribeAction } from "@/app/actions/subscription";
@@ -8,13 +10,25 @@ export const metadata = {
   description: "Get unlimited access to all articles from Vercel Daily News.",
 };
 
-export default async function SubscribePage({
+async function SubscribeForm({
   searchParams,
 }: {
   searchParams: Promise<{ redirect?: string }>;
 }) {
   const { redirect } = await searchParams;
+  return (
+    <form action={subscribeAction}>
+      {redirect && <input type="hidden" name="redirect" value={redirect} />}
+      <SubscribeButton />
+    </form>
+  );
+}
 
+export default function SubscribePage({
+  searchParams,
+}: {
+  searchParams: Promise<{ redirect?: string }>;
+}) {
   return (
     <div className="mx-auto max-w-lg px-4 py-20 text-center sm:px-6">
       <div className="mb-6 flex justify-center">
@@ -32,10 +46,15 @@ export default async function SubscribePage({
       </p>
 
       <div className="mt-4 px-4 py-4">
-        <form action={subscribeAction}>
-          {redirect && <input type="hidden" name="redirect" value={redirect} />}
-          <SubscribeButton />
-        </form>
+        <Suspense
+          fallback={
+            <form action={subscribeAction}>
+              <SubscribeButton />
+            </form>
+          }
+        >
+          <SubscribeForm searchParams={searchParams} />
+        </Suspense>
       </div>
     </div>
   );
