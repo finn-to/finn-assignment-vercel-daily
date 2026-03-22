@@ -1,9 +1,11 @@
 import { Suspense } from "react";
 
 import { TriangleIcon } from "lucide-react";
+import { cookies } from "next/headers";
 
 import { subscribeAction } from "@/app/actions/subscription";
 import SubscribeButton from "@/components/composite/SubscribeButton";
+import { SUBSCRIPTION_TOKEN_COOKIE } from "@/lib/constants";
 
 export const metadata = {
   title: "Subscribe",
@@ -15,10 +17,21 @@ async function SubscribeForm({
 }: {
   searchParams: Promise<{ redirect?: string }>;
 }) {
-  const { redirect } = await searchParams;
+  const cookieStore = await cookies();
+  const isSubscribed = !!cookieStore.get(SUBSCRIPTION_TOKEN_COOKIE)?.value;
+
+  if (isSubscribed) {
+    return (
+      <span className="rounded-full border border-neutral-200 bg-neutral-100 px-3 py-1 text-xs font-semibold text-neutral-700">
+        You are already subscribed
+      </span>
+    );
+  }
+
+  const { redirect: redirectTo } = await searchParams;
   return (
     <form action={subscribeAction}>
-      {redirect && <input type="hidden" name="redirect" value={redirect} />}
+      {redirectTo && <input type="hidden" name="redirect" value={redirectTo} />}
       <SubscribeButton />
     </form>
   );

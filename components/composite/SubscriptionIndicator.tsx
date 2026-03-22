@@ -4,7 +4,7 @@ import { useTransition } from "react";
 
 import { LoaderCircleIcon } from "lucide-react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 
 import { unsubscribeAction } from "@/app/actions/subscription";
 import { Button, buttonVariants } from "@/components/ui/button";
@@ -17,8 +17,10 @@ interface Props {
 export default function SubscriptionIndicator({ isSubscribed }: Props) {
   const [isPending, startTransition] = useTransition();
   const router = useRouter();
+  const pathname = usePathname();
 
   if (!isSubscribed) {
+    if (pathname === "/subscribe") return null;
     return (
       <Link
         href="/subscribe"

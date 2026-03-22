@@ -7,14 +7,15 @@ import { notFound } from "next/navigation";
 
 import ArticleContent from "@/components/composite/ArticleContent";
 import ErrorBoundary from "@/components/composite/ErrorBoundary";
-import { ArticleContentSkeleton } from "@/components/skeletons/ArticleContentSkeleton";
 import TrendingArticlesSidebar, {
   TrendingArticlesSidebarSkeleton,
 } from "@/components/composite/TrendingArticlesSidebar";
+import { ArticleContentSkeleton } from "@/components/skeletons/ArticleContentSkeleton";
 import { getArticle, getArticles } from "@/lib/api/articles";
 import { getCategories } from "@/lib/api/categories";
+import { extractArticleId } from "@/lib/article-helpers";
 import logger from "@/lib/logger";
-import { extractArticleId, formatDate } from "@/lib/article-helpers";
+import { formatDate } from "@/lib/utils";
 
 type Params = { slug: string };
 

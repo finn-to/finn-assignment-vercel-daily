@@ -1,7 +1,35 @@
 import Image from "next/image";
 
-import { renderMarkdownInline } from "@/lib/article-helpers";
 import type { ContentBlock } from "@/lib/types";
+
+function renderMarkdownInline(text: string) {
+  const parts = text.split(/(\*\*[^*]+\*\*|\[[^\]]+\]\([^)]+\))/g);
+  return parts.map((part, i) => {
+    if (part.startsWith("**") && part.endsWith("**")) {
+      return (
+        <strong key={i} className="font-semibold text-neutral-900">
+          {part.slice(2, -2)}
+        </strong>
+      );
+    }
+    const linkMatch = part.match(/^\[([^\]]+)\]\(([^)]+)\)$/);
+    if (linkMatch) {
+      const [, label, href] = linkMatch;
+      return (
+        <a
+          key={i}
+          href={href}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="underline underline-offset-2 hover:text-neutral-950"
+        >
+          {label}
+        </a>
+      );
+    }
+    return part;
+  });
+}
 
 export default function ArticleBody({ blocks }: { blocks: ContentBlock[] }) {
   return (

@@ -1,8 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
 
+import { articleUrl } from "@/lib/article-helpers";
 import type { Article } from "@/lib/types";
-import { articleUrl, formatDate } from "@/lib/article-helpers";
+import { formatDate } from "@/lib/utils";
 
 interface Props {
   article: Article;

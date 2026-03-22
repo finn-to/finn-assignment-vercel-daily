@@ -3,7 +3,8 @@ import Link from "next/link";
 
 import { getTrendingArticles } from "@/lib/api/articles";
 import { getCategories } from "@/lib/api/categories";
-import { articleUrl, formatDate } from "@/lib/article-helpers";
+import { articleUrl } from "@/lib/article-helpers";
+import { formatDate } from "@/lib/utils";
 
 export { TrendingArticlesSidebarSkeleton } from "@/components/skeletons/TrendingArticlesSidebarSkeleton";
 
