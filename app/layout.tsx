@@ -3,6 +3,7 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { Be_Vietnam_Pro } from "next/font/google";
 
+import ErrorBoundary from "@/components/ErrorBoundary";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import { getPublicationConfig } from "@/lib/api/publicationConfig";
@@ -48,9 +49,15 @@ export default function RootLayout({
   return (
     <html lang="en" className={beVietnamPro.variable}>
       <body className="flex min-h-screen flex-col antialiased">
-        <Header />
-        <main className="flex-1">{children}</main>
-        <Footer />
+        <ErrorBoundary label="Header">
+          <Header />
+        </ErrorBoundary>
+        <ErrorBoundary label="Main">
+          <main className="flex-1">{children}</main>
+        </ErrorBoundary>
+        <ErrorBoundary label="Footer">
+          <Footer />
+        </ErrorBoundary>
         <SpeedInsights />
       </body>
     </html>
